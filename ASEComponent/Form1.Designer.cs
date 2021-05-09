@@ -152,7 +152,7 @@ namespace ASEComponent
             this.textBoxSingle.ForeColor = System.Drawing.SystemColors.Info;
             this.textBoxSingle.Location = new System.Drawing.Point(12, 383);
             this.textBoxSingle.Name = "textBoxSingle";
-            this.textBoxSingle.Size = new System.Drawing.Size(688, 27);
+            this.textBoxSingle.Size = new System.Drawing.Size(338, 27);
             this.textBoxSingle.TabIndex = 5;
             this.textBoxSingle.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.textBoxSingle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSingle_KeyDown);
