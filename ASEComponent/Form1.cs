@@ -15,12 +15,6 @@ namespace ASEComponent
 {
     public partial class Form1 : Form
     {
-        const string FileSavePath = @"d:\data\Save.xml";
-        public string a;
-        public string b;
-        public string c;
-        
-
         public Form1()
         {
             InitializeComponent();
@@ -96,10 +90,7 @@ namespace ASEComponent
 
         private void buttonExecute_Click(object sender, EventArgs e)
         {
-            a = textBoxWrite.Text;
-
-            textBoxRead.Text = a;
-
+           
             
         }
 
@@ -110,15 +101,8 @@ namespace ASEComponent
 
         private void textBoxSingle_KeyDown(object sender, KeyEventArgs e)
         {
-            a = textBoxWrite.Text;
-            b = textBoxRead.Text;
-            c = textBoxSingle.Text;
-
-            if(c=="Move to")
-            {
-                
-            }
 
     }
+
     }
 }
