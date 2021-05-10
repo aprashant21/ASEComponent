@@ -37,7 +37,7 @@ namespace ASEComponent
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShapeOutput = new System.Windows.Forms.TextBox();
-            this.textBoxMulti = new System.Windows.Forms.TextBox();
+            this.ProgramInput = new System.Windows.Forms.TextBox();
             this.textBoxSingle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -113,16 +113,16 @@ namespace ASEComponent
             this.ShapeOutput.Size = new System.Drawing.Size(688, 252);
             this.ShapeOutput.TabIndex = 2;
             // 
-            // textBoxMulti
+            // ProgramInput
             // 
-            this.textBoxMulti.BackColor = System.Drawing.SystemColors.InfoText;
-            this.textBoxMulti.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMulti.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBoxMulti.Location = new System.Drawing.Point(12, 52);
-            this.textBoxMulti.Multiline = true;
-            this.textBoxMulti.Name = "textBoxMulti";
-            this.textBoxMulti.Size = new System.Drawing.Size(688, 221);
-            this.textBoxMulti.TabIndex = 4;
+            this.ProgramInput.BackColor = System.Drawing.SystemColors.InfoText;
+            this.ProgramInput.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProgramInput.ForeColor = System.Drawing.SystemColors.Info;
+            this.ProgramInput.Location = new System.Drawing.Point(12, 52);
+            this.ProgramInput.Multiline = true;
+            this.ProgramInput.Name = "ProgramInput";
+            this.ProgramInput.Size = new System.Drawing.Size(688, 221);
+            this.ProgramInput.TabIndex = 4;
             // 
             // textBoxSingle
             // 
@@ -179,7 +179,7 @@ namespace ASEComponent
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSingle);
-            this.Controls.Add(this.textBoxMulti);
+            this.Controls.Add(this.ProgramInput);
             this.Controls.Add(this.buttonExecute);
             this.Controls.Add(this.ShapeOutput);
             this.Controls.Add(this.menuStrip1);
@@ -204,7 +204,7 @@ namespace ASEComponent
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TextBox ShapeOutput;
-        private System.Windows.Forms.TextBox textBoxMulti;
+        private System.Windows.Forms.TextBox ProgramInput;
         private System.Windows.Forms.TextBox textBoxSingle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

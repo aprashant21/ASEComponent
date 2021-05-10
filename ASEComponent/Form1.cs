@@ -15,6 +15,7 @@ namespace ASEComponent
 {
     public partial class Form1 : Form
     {
+        Graphics g;
         public Form1()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace ASEComponent
                     MessageBox.Show("Error: Could not read file. Original error: " + ex.Message);
                 }
                 //displays the text inside the file on TextBox named as txtInput                
-                textBoxMulti.Text = File.ReadAllText(openFileDialog1.FileName);
+                ProgramInput.Text = File.ReadAllText(openFileDialog1.FileName);
             }
         }
 
@@ -81,7 +82,7 @@ namespace ASEComponent
             if (save.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter write = new StreamWriter(File.Create(save.FileName));
-                write.WriteLine(textBoxMulti.Text);
+                write.WriteLine(ProgramInput.Text);
                 write.Close();
                 MessageBox.Show("Saved successfully!!!");
             }
@@ -90,8 +91,8 @@ namespace ASEComponent
 
         private void buttonExecute_Click(object sender, EventArgs e)
         {
-           
             
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
