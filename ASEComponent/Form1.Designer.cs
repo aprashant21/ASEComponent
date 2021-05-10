@@ -36,12 +36,12 @@ namespace ASEComponent
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBoxRead = new System.Windows.Forms.TextBox();
-            this.buttonExecute = new System.Windows.Forms.Button();
+            this.ShapeOutput = new System.Windows.Forms.TextBox();
             this.textBoxMulti = new System.Windows.Forms.TextBox();
             this.textBoxSingle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonExecute = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,27 +103,15 @@ namespace ASEComponent
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // textBoxRead
+            // ShapeOutput
             // 
-            this.textBoxRead.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRead.Location = new System.Drawing.Point(12, 331);
-            this.textBoxRead.Multiline = true;
-            this.textBoxRead.Name = "textBoxRead";
-            this.textBoxRead.ReadOnly = true;
-            this.textBoxRead.Size = new System.Drawing.Size(688, 252);
-            this.textBoxRead.TabIndex = 2;
-            // 
-            // buttonExecute
-            // 
-            this.buttonExecute.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.buttonExecute.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExecute.Location = new System.Drawing.Point(375, 282);
-            this.buttonExecute.Name = "buttonExecute";
-            this.buttonExecute.Size = new System.Drawing.Size(85, 43);
-            this.buttonExecute.TabIndex = 3;
-            this.buttonExecute.Text = "Execute";
-            this.buttonExecute.UseVisualStyleBackColor = false;
-            this.buttonExecute.Click += new System.EventHandler(this.buttonExecute_Click);
+            this.ShapeOutput.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShapeOutput.Location = new System.Drawing.Point(12, 331);
+            this.ShapeOutput.Multiline = true;
+            this.ShapeOutput.Name = "ShapeOutput";
+            this.ShapeOutput.ReadOnly = true;
+            this.ShapeOutput.Size = new System.Drawing.Size(688, 252);
+            this.ShapeOutput.TabIndex = 2;
             // 
             // textBoxMulti
             // 
@@ -170,6 +158,18 @@ namespace ASEComponent
             this.label2.TabIndex = 7;
             this.label2.Text = "TYPE \'RUN\' TO EXECUTE THE PROGRAM:";
             // 
+            // buttonExecute
+            // 
+            this.buttonExecute.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonExecute.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExecute.Location = new System.Drawing.Point(375, 282);
+            this.buttonExecute.Name = "buttonExecute";
+            this.buttonExecute.Size = new System.Drawing.Size(85, 43);
+            this.buttonExecute.TabIndex = 3;
+            this.buttonExecute.Text = "Execute";
+            this.buttonExecute.UseVisualStyleBackColor = false;
+            this.buttonExecute.Click += new System.EventHandler(this.buttonExecute_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,7 +181,7 @@ namespace ASEComponent
             this.Controls.Add(this.textBoxSingle);
             this.Controls.Add(this.textBoxMulti);
             this.Controls.Add(this.buttonExecute);
-            this.Controls.Add(this.textBoxRead);
+            this.Controls.Add(this.ShapeOutput);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -203,12 +203,12 @@ namespace ASEComponent
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBoxRead;
-        private System.Windows.Forms.Button buttonExecute;
+        private System.Windows.Forms.TextBox ShapeOutput;
         private System.Windows.Forms.TextBox textBoxMulti;
         private System.Windows.Forms.TextBox textBoxSingle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonExecute;
     }
 }
 
