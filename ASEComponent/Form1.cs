@@ -20,6 +20,7 @@ namespace ASEComponent
         {
             InitializeComponent();
         }
+        
         CreateShapes factory = new ShapesFactory();
         Pen myPen = new Pen(Color.Red);
         public Color newcolor;
@@ -150,7 +151,7 @@ namespace ASEComponent
                         {
                             Int32.TryParse(param[0], out width);
                             Int32.TryParse(param[1], out height);
-                            IShapes circle = factory.getShape("rectangle");
+                            IShapes rectangle = factory.getShape("rectangle");
 
                             Rectangle r = new Rectangle();
                             r.set(Color.Black, x, y, width, height);
@@ -205,7 +206,36 @@ namespace ASEComponent
                         r.draw(g);
                     }
                 }
-                else if (cmd[0].Equals("pen") == true)
+                else if (cmd[0].Equals("fill rectangle") == true)
+                {
+                    if (cmd.Length < 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+
+                    }
+                    else
+                    {
+                        string[] param = cmd[1].Split(',');
+                        if (param.Length < 2)
+                        {
+                            MessageBox.Show("Please Input Valid Parameter!!!");
+
+                        }
+                        else
+                        {
+                            Int32.TryParse(param[0], out width);
+                            Int32.TryParse(param[1], out height);
+                            IShapes rectangle= factory.getShape("fillrectangle");
+
+                            Rectangle r = new Rectangle();
+                            r.set(Color.Black, x, y, width, height);
+                            r.draw(g);
+
+
+                        }
+                    }
+                }
+                else if (cmd[0].Equals("fil circle") == true)
                 {
                     if (cmd.Length != 2)
                     {
@@ -213,21 +243,42 @@ namespace ASEComponent
                     }
                     else
                     {
-                        if (cmd[1].Equals("red") == true)
+                        if (cmd[1].Equals("radius") == true)
                         {
-                            Pen p = new Pen(Color.Red, 2);
-
+                            IShapes circle = factory.getShape("fillcircle");
+                            Circle c = new Circle();
+                            c.set(Color.AliceBlue, x, y, radius);
+                            c.draw(g);
                         }
-                        else if (cmd[1].Equals("blue") == true)
+                        else
                         {
-                            Pen p = new Pen(Color.Blue, 2);
-                        }
-                        else if (cmd[1].Equals("green") == true)
-                        {
-                            Pen p = new Pen(Color.Green, 2);
+                            Int32.TryParse(cmd[1], out radius);
+                            IShapes circle = factory.getShape("fillcircle");
+                            Circle c = new Circle();
+                            c.set(Color.AliceBlue, x, y, radius);
+                            c.draw(g);
                         }
                     }
                 }
+                else if (cmd[0].Equals("fill triangle") == true)
+                {
+                    string[] param = cmd[1].Split(',');
+                    if (param.Length != 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+
+                    }
+                    else
+                    {
+                        Int32.TryParse(param[0], out width);
+                        Int32.TryParse(param[1], out height);
+                        IShapes circle = factory.getShape("filltriangle");
+                        Triangle r = new Triangle();
+                        r.set(Color.AliceBlue, x, y, width, height);
+                        r.draw(g);
+                    }
+                }
+
                 else if (!cmd[0].Equals(null))
                 {
                     int errorLine = k + 1;

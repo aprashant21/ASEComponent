@@ -24,7 +24,18 @@ namespace ASEComponent
             {
                 return new Triangle();
             }
-
+            else if (ShapeType.Equals("fillrectangle"))
+            {
+                return new Rectangle();
+            }
+            else if (ShapeType.Equals("filltriangle"))
+            {
+                return new Triangle();
+            }
+            else if (ShapeType.Equals("fillcircle"))
+            {
+                return new Circle();
+            }
             else
             {
                 System.ArgumentException argEx = new System.ArgumentException("Factory error: " + ShapeType + " does not exist");

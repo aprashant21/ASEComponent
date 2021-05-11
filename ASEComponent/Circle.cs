@@ -32,6 +32,19 @@ namespace ASEComponent
                 throw ex;
             }
         }
+        public void Draw(Graphics g)
+        {
+            try
+            {
+                SolidBrush b = new SolidBrush(Color.Green);
+                g.FillEllipse(b, x - radius, y - radius, radius * 2, radius * 2);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         public void set(Color c, params int[] list)
         {

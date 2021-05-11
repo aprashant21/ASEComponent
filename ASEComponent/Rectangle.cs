@@ -39,6 +39,20 @@ namespace ASEComponent
                 throw ex;
             }
         }
+
+        public void Draw(Graphics g)
+        {
+            try
+            {
+                SolidBrush b = new SolidBrush(Color.Blue);
+                g.FillRectangle(b, x - (width / 2), y - (height / 2), width * 2, height * 2);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public void set(Color c, params int[] list)
         {
             try

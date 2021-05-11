@@ -45,6 +45,29 @@ namespace ASEComponent
                 throw ex;
             }
         }
+        public void Draw(Graphics g)
+        {
+            try
+            {
+                Point[] p = new Point[3];
+                p[0].X = x;
+                p[0].Y = y - (height / 2);
+
+                p[1].X = x - (width / 2);
+                p[1].Y = y + (height / 2);
+
+                p[2].X = x + (width / 2);
+                p[2].Y = y + (height / 2);
+
+                SolidBrush b = new SolidBrush(Color.Red);
+                g.FillPolygon(b, p);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         public void set(Color c, params int[] list)
         {
