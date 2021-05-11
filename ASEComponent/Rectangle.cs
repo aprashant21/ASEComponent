@@ -30,7 +30,7 @@ namespace ASEComponent
         {
             try
             {
-                Pen p = new Pen(Color.Green, 2);
+                Pen p = new Pen(Color.Blue, 2);
                 g.DrawRectangle(p, x - (width / 2), y - (height / 2), width * 2, height * 2);
             }
             catch (Exception ex)

@@ -20,7 +20,10 @@ namespace ASEComponent
         {
             InitializeComponent();
         }
-
+        CreateShapes factory = new ShapesFactory();
+        Pen myPen = new Pen(Color.Red);
+        public Color newcolor;
+        int x = 0, y = 0, width, height, radius;
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -91,13 +94,172 @@ namespace ASEComponent
 
         private void buttonExecute_Click(object sender, EventArgs e)
         {
-            
+            g = ShapeOutput.CreateGraphics();
+            string command = ProgramInput.Text.ToLower();
+            string[] commandline = command.Split(new String[] { "\n" },
+            StringSplitOptions.RemoveEmptyEntries);
 
+            for (int k = 0; k < commandline.Length; k++)
+            {
+                string[] cmd = commandline[k].Split(' ');
+                if (cmd[0].Equals("moveto") == true)
+                {
+                    ShapeOutput.Refresh();
+                    string[] param = cmd[1].Split(',');
+                    if (param.Length != 2)
+                    { MessageBox.Show("Please Input Valid Parameter!!!"); }
+                    else
+                    {
+                        Int32.TryParse(param[0], out x);
+                        Int32.TryParse(param[1], out y);
+                        MoveTo(x, y);
+                    }
+
+                }
+                else if (cmd[0].Equals("drawto") == true)
+                {
+                    string[] param = cmd[1].Split(',');
+                    int x = 0, y = 0;
+                    if (param.Length != 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+                    }
+                    else
+                    {
+                        Int32.TryParse(param[0], out x);
+                        Int32.TryParse(param[1], out y);
+                        DrawTo(x, y);
+                    }
+                }
+                else if (cmd[0].Equals("rectangle") == true)
+                {
+                    if (cmd.Length < 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+
+                    }
+                    else
+                    {
+                        string[] param = cmd[1].Split(',');
+                        if (param.Length < 2)
+                        {
+                            MessageBox.Show("Please Input Valid Parameter!!!");
+
+                        }
+                        else
+                        {
+                            Int32.TryParse(param[0], out width);
+                            Int32.TryParse(param[1], out height);
+                            IShapes circle = factory.getShape("rectangle");
+
+                            Rectangle r = new Rectangle();
+                            r.set(Color.Black, x, y, width, height);
+                            r.draw(g);
+
+
+                        }
+                    }
+                }
+
+                else if (cmd[0].Equals("circle") == true)
+                {
+                    if (cmd.Length != 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+                    }
+                    else
+                    {
+                        if (cmd[1].Equals("radius") == true)
+                        {
+                            IShapes circle = factory.getShape("circle");
+                            Circle c = new Circle();
+                            c.set(Color.AliceBlue, x, y, radius);
+                            c.draw(g);
+                        }
+                        else
+                        {
+                            Int32.TryParse(cmd[1], out radius);
+                            IShapes circle = factory.getShape("circle");
+                            Circle c = new Circle();
+                            c.set(Color.AliceBlue, x, y, radius);
+                            c.draw(g);
+                        }
+                    }
+                }
+
+                else if (cmd[0].Equals("triangle") == true)
+                {
+                    string[] param = cmd[1].Split(',');
+                    if (param.Length != 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+
+                    }
+                    else
+                    {
+                        Int32.TryParse(param[0], out width);
+                        Int32.TryParse(param[1], out height);
+                        IShapes circle = factory.getShape("triangle");
+                        Triangle r = new Triangle();
+                        r.set(Color.AliceBlue, x, y, width, height);
+                        r.draw(g);
+                    }
+                }
+                else if (cmd[0].Equals("pen") == true)
+                {
+                    if (cmd.Length != 2)
+                    {
+                        MessageBox.Show("Please Input Valid Parameter!!!");
+                    }
+                    else
+                    {
+                        if (cmd[1].Equals("red") == true)
+                        {
+                            Pen p = new Pen(Color.Red, 2);
+
+                        }
+                        else if (cmd[1].Equals("blue") == true)
+                        {
+                            Pen p = new Pen(Color.Blue, 2);
+                        }
+                        else if (cmd[1].Equals("green") == true)
+                        {
+                            Pen p = new Pen(Color.Green, 2);
+                        }
+                    }
+                }
+                else if (!cmd[0].Equals(null))
+                {
+                    int errorLine = k + 1;
+                    MessageBox.Show("Invalid command recognised on line " + errorLine, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShapeOutput.Invalidate();
+            ProgramInput.Clear();
+
+        }
+
+        public void MoveTo(int toX, int toY)
+        {
+            x = toX;
+            y = toY;
+        }
+
+        public void DrawTo(int toX, int toY)
+        {
+            x = toX;
+            y = toY;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBoxSingle_KeyDown(object sender, KeyEventArgs e)

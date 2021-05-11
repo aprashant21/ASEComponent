@@ -23,7 +23,7 @@ namespace ASEComponent
         {
             try
             {
-                Pen p = new Pen(Color.Yellow, 2);
+                Pen p = new Pen(Color.Green, 2);
                 g.DrawEllipse(p, x - radius, y - radius, radius * 2, radius * 2);
             }
             catch (Exception ex)

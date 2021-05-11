@@ -27,7 +27,6 @@ namespace ASEComponent
 
             else
             {
-                //throw an appropriate exception.
                 System.ArgumentException argEx = new System.ArgumentException("Factory error: " + ShapeType + " does not exist");
                 throw argEx;
             }

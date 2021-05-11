@@ -13,4 +13,4 @@ namespace ASEComponent
         void draw(Graphics g);
     }
 }
-}
+
