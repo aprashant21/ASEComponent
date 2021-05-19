@@ -23,7 +23,7 @@ namespace ASEComponent
             this.height = height;
         }
 
-        public void draw(Graphics g)
+        public void Draw(Graphics g)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace ASEComponent
                 throw ex;
             }
         }
-        public void Draw(Graphics g)
+        public void draw(Graphics g)
         {
             try
             {

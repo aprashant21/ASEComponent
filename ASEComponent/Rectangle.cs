@@ -26,7 +26,7 @@ namespace ASEComponent
         }
 
 
-        public void draw(Graphics g)
+        public void Draw(Graphics g)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace ASEComponent
             }
         }
 
-        public void Draw(Graphics g)
+        public void draw(Graphics g)
         {
             try
             {

@@ -13,13 +13,14 @@ namespace ASEComponent
 
         public Circle() : base()
         {
+            radius = 0;
         }
         public Circle(int x, int y, int radius)
         {
             this.radius = radius;
         }
 
-        public void draw(Graphics g)
+        public void Draw(Graphics g)
         {
             try
             {
@@ -32,7 +33,7 @@ namespace ASEComponent
                 throw ex;
             }
         }
-        public void Draw(Graphics g)
+        public void draw(Graphics g)
         {
             try
             {

@@ -36,6 +36,7 @@ namespace ASEComponent
             {
                 return new Circle();
             }
+           
             else
             {
                 System.ArgumentException argEx = new System.ArgumentException("Factory error: " + ShapeType + " does not exist");
