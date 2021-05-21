@@ -109,11 +109,11 @@ namespace ASEComponent
 
         private void buttonExecute_Click(object sender, EventArgs e)
         {
-            hasDrawOrMoveValue = false; 
+            hasDrawOrMoveValue = false;
             loadexecute();
         }
 
-        private void loadexecute()
+            private void loadexecute()
         {
             int commandline = MultilineProgramInput.Lines.Length;
 
@@ -245,7 +245,7 @@ namespace ASEComponent
                     {
                         height = int.Parse(cmd2[1]);
                     }
-                    else if (cmd2[0].ToLower().Equals("counter"))
+                    else if (cmd2[0].ToLower().Equals("count"))
                     {
                         count = int.Parse(cmd2[1]);
                     }
@@ -584,6 +584,7 @@ namespace ASEComponent
             return lineNum;
         
         }
+        public int size1, size2;
         private void executeInput_TextChanged(object sender, EventArgs e)
         {
             if (executeInput.Text.ToLower().Trim() == "run")
@@ -793,6 +794,11 @@ namespace ASEComponent
                 MultilineProgramInput.Clear();
                 ShapeOutput.Invalidate();
 
+                size1 = 0;
+                size2 = 0;
+                xlabel.Text = size1.ToString();
+                ylabel.Text = size2.ToString();
+
 
             }
 
@@ -840,33 +846,36 @@ namespace ASEComponent
         private void DrawTriangle(int rBase, int adj, int hyp)
         {
             Pen myPen = new Pen(mainColor);
-            Point[] pnt = new Point[3];
+            Point[] p = new Point[3];
 
-            pnt[0].X = mouseX;
-            pnt[0].Y = mouseY;
+            p[0].X = mouseX;
+            p[0].Y = mouseY;
 
-            pnt[1].X = mouseX - rBase;
-            pnt[1].Y = mouseY;
+            p[1].X = mouseX - rBase;
+            p[1].Y = mouseY;
 
-            pnt[2].X = mouseX;
-            pnt[2].Y = mouseY - adj;
-            g.DrawPolygon(myPen, pnt);
+            p[2].X = mouseX;
+            p[2].Y = mouseY - adj;
+            g.DrawPolygon(myPen, p);
         }
         public void MoveTo(int toX, int toY)
         {
             x = toX;
             y = toY;
+            xlabel.Text = x.ToString();
+            ylabel.Text = y.ToString();
         }
         public void DrawTo(int toX, int toY)
         {
             x = toX;
             y = toY;
+
         }
 
         private void ShapeOutput_MouseClick(object sender, MouseEventArgs e)
         {
             xlabel.Text = (e.X).ToString();
-            xlabel.Text = (e.Y).ToString();
+            ylabel.Text = (e.Y).ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)

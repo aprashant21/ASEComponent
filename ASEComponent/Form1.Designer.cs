@@ -194,7 +194,7 @@ namespace ASEComponent
             this.executeInput.BackColor = System.Drawing.SystemColors.Desktop;
             this.executeInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.executeInput.ForeColor = System.Drawing.SystemColors.Info;
-            this.executeInput.Location = new System.Drawing.Point(305, 49);
+            this.executeInput.Location = new System.Drawing.Point(305, 52);
             this.executeInput.Name = "executeInput";
             this.executeInput.Size = new System.Drawing.Size(166, 26);
             this.executeInput.TabIndex = 13;
