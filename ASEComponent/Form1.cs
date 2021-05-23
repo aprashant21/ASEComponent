@@ -14,6 +14,9 @@ using Paint;
 
 namespace ASEComponent
 {
+    /// <summary>
+    /// This is the main class where entire code are written.
+    /// </summary>
     public partial class Form1 : Form
     {
         
@@ -23,10 +26,10 @@ namespace ASEComponent
             g = ShapeOutput.CreateGraphics();
 
         }
-
+        /// <summary>
+        /// This is the instance variables declared.
+        /// </summary>
         Graphics g;
-        Color btnBorderColor = Color.FromArgb(104, 162, 255);
-        Color mainColor = Color.Black;
         int x, y = -1;
         public int radius = 0;
         public int width = 0;
@@ -37,9 +40,16 @@ namespace ASEComponent
 
         int loopCount = 0;
         Boolean hasDrawOrMoveValue = false;
-        
+        /// <summary>
+        /// calling shapesfactory class
+        /// </summary>
         CreateShapes factory = new ShapesFactory();
 
+        /// <summary>
+        /// This method is method to exit main window..
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to Exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -52,13 +62,21 @@ namespace ASEComponent
         {
 
         }
-
+        /// <summary>
+        /// This method is method to open about window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About obj = new About();
             obj.Show();
         }
-
+        /// <summary>
+        /// This method is method to browser text in the program textbox and load data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
@@ -92,7 +110,11 @@ namespace ASEComponent
                 MultilineProgramInput.Text = File.ReadAllText(openFileDialog1.FileName);
             }
         }
-
+        /// <summary>
+        /// This method is method to save program in the specific location.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
@@ -106,13 +128,19 @@ namespace ASEComponent
             }
 
         }
-
+        /// <summary>
+        /// This is the method for execute button where multiline program is executed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExecute_Click(object sender, EventArgs e)
         {
             hasDrawOrMoveValue = false;
             loadexecute();
         }
-
+        /// <summary>
+        /// This is the method for loading moveto/drawto and loop count command.
+        /// </summary>
             private void loadexecute()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -136,6 +164,9 @@ namespace ASEComponent
                         mouseX = int.Parse(parms[0]);
                         mouseY = int.Parse(parms[1]);
                         hasDrawOrMoveValue = true;
+                        xlabel.Text = mouseX.ToString();
+                        ylabel.Text = mouseY.ToString();
+                        
                     }
                     else
                     {
@@ -144,6 +175,7 @@ namespace ASEComponent
                     if (hasMoveto)
                     {
                         ShapeOutput.Refresh();
+                        
                     }
                 }
 
@@ -159,6 +191,10 @@ namespace ASEComponent
 
             }
         }
+        /// <summary>
+        /// This is the method to run the commands like if-condition, loop and repeat.
+        /// </summary>
+        /// <param name="singleLineCommand"></param>
 
         public void RunCommand(string singleLineCommand)
         {
@@ -264,6 +300,7 @@ namespace ASEComponent
                         radius = increaseValue;
                         for (int j = 0; j < count; j++)
                         {
+                            Circle c = new Circle();
                             DrawCircle(radius);
                             radius += increaseValue;
                         }
@@ -315,6 +352,11 @@ namespace ASEComponent
                 sendDrawCommand(singleLineCommand);
             }
         }
+        /// <summary>
+        /// This is the method to specify specific size for the shapes.
+        /// </summary>
+        /// <param name="lineCommand"></param>
+        /// <returns></returns>
         private int GetSize(string lineCommand)
         {
             int value = 0;
@@ -341,7 +383,10 @@ namespace ASEComponent
             }
             return value;
         }
-
+        /// <summary>
+        /// This is the method to initialize and build shapes.
+        /// </summary>
+        /// <param name="lineOfCommand"></param>
         private void sendDrawCommand(string lineOfCommand)
         {
             String[] shapes = { "circle", "rectangle", "triangle"};
@@ -355,8 +400,8 @@ namespace ASEComponent
                 cmd[i] = cmd[i].Trim();
             }
             String firstWord = cmd[0].ToLower();
-            Boolean firstcmdhape = shapes.Contains(firstWord);
-            if (firstcmdhape)
+            Boolean firstwordshape = shapes.Contains(firstWord);
+            if (firstwordshape)
             {
 
                 if (firstWord.Equals("circle"))
@@ -492,6 +537,10 @@ namespace ASEComponent
                 }
             }
         }
+        /// <summary>
+        /// This is the method to initilize loop.
+        /// </summary>
+        /// <returns></returns>
         private int GetEndifEndLineNumber()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -509,6 +558,10 @@ namespace ASEComponent
             }
             return lineNum;
         }
+        /// <summary>
+        /// This method is initiate if there is "if" command in the commandline.
+        /// </summary>
+        /// <returns></returns>
         private int GetIfStartLineNumber()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -534,6 +587,10 @@ namespace ASEComponent
             }
             return lineNum;
         }
+        /// <summary>
+        /// This is the method to initialize loop.
+        /// </summary>
+        /// <returns></returns>
         private int GetLoopEndLineNumber()
         {
             try
@@ -558,6 +615,10 @@ namespace ASEComponent
                 return 0;
             }
         }
+        /// <summary>
+        /// Loops are started in this method.
+        /// </summary>
+        /// <returns></returns>
         private int GetLoopStartLineNumber()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -584,7 +645,16 @@ namespace ASEComponent
             return lineNum;
         
         }
+        /// <summary>
+        /// This is the variable which is used in "X-AXIS" group.
+        /// </summary>
         public int size1, size2;
+
+        /// <summary>
+        /// This is the method where user can type "run","clear" and "reset " command to execute, clear and reset commandline simulteneouly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void executeInput_TextChanged(object sender, EventArgs e)
         {
             if (executeInput.Text.ToLower().Trim() == "run")
@@ -804,19 +874,6 @@ namespace ASEComponent
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            ProgramInput.Clear();
-            MultilineProgramInput.Clear();
-            executeInput.Clear();
-            ShapeOutput.Invalidate();
-        }
-
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -831,21 +888,35 @@ namespace ASEComponent
         {
             
         }
-
-    
+        
+        /// <summary>
+        /// This method can draw the blue color rectangle shape.
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         private void DrawRectangle(int width, int height)
         {
-            Pen myPen = new Pen(mainColor);
+            Pen myPen = new Pen(Color.Blue);
             g.DrawRectangle(myPen, mouseX - width / 2, mouseY - height / 2, width, height);
         }
+        /// <summary>
+        /// This is the method to draw circle using radius parameter.
+        /// </summary>
+        /// <param name="radius"></param>
         private void DrawCircle(int radius)
         {
-            Pen myPen = new Pen(mainColor);
+            Pen myPen = new Pen(Color.Green);
             g.DrawEllipse(myPen, mouseX - radius, mouseY - radius, radius * 2, radius * 2);
         }
+        /// <summary>
+        /// This is the method to draw Triangle.
+        /// </summary>
+        /// <param name="rBase"></param>
+        /// <param name="adj"></param>
+        /// <param name="hyp"></param>
         private void DrawTriangle(int rBase, int adj, int hyp)
         {
-            Pen myPen = new Pen(mainColor);
+            Pen myPen = new Pen(Color.Red);
             Point[] p = new Point[3];
 
             p[0].X = mouseX;
@@ -858,6 +929,11 @@ namespace ASEComponent
             p[2].Y = mouseY - adj;
             g.DrawPolygon(myPen, p);
         }
+        /// <summary>
+        /// This is the method to move axis location from singleline program textbox.
+        /// </summary>
+        /// <param name="toX"></param>
+        /// <param name="toY"></param>
         public void MoveTo(int toX, int toY)
         {
             x = toX;
@@ -865,13 +941,23 @@ namespace ASEComponent
             xlabel.Text = x.ToString();
             ylabel.Text = y.ToString();
         }
+
+        /// <summary>
+        /// This method is used to draw the shapes in specific location.
+        /// </summary>
+        /// <param name="toX"></param>
+        /// <param name="toY"></param>
         public void DrawTo(int toX, int toY)
         {
             x = toX;
             y = toY;
 
         }
-
+        /// <summary>
+        /// This is the mouse click event method in which if user click on the output panel then he/she can see the actual axis in the label of the group box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ShapeOutput_MouseClick(object sender, MouseEventArgs e)
         {
             xlabel.Text = (e.X).ToString();
