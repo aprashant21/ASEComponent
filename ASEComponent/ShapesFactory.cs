@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace ASEComponent
 {
+    /// <summary>
+    /// This is class that define factory design pattern.
+    /// </summary>
     class ShapesFactory : CreateShapes
     {
+        /// <summary>
+        /// This public override Ishapes method helps to override the getshape method.
+        /// </summary>
+        /// <param name="ShapeType"></param>
+        /// <returns></returns>
         public override IShapes getShape(string ShapeType)
         {
             ShapeType = ShapeType.ToLower().Trim();

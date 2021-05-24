@@ -48,8 +48,8 @@ namespace ASEComponent
         /// <summary>
         /// This method is method to exit main window..
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Reference to the control object</param>
+        /// <param name="e">event data</param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to Exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -65,8 +65,8 @@ namespace ASEComponent
         /// <summary>
         /// This method is method to open about window.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Reference to the control object</param>
+        /// <param name="e">event data</param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About obj = new About();
@@ -75,8 +75,8 @@ namespace ASEComponent
         /// <summary>
         /// This method is method to browser text in the program textbox and load data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Reference to the control object</param>
+        /// <param name="e">event data</param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
@@ -113,8 +113,8 @@ namespace ASEComponent
         /// <summary>
         /// This method is method to save program in the specific location.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Reference to the control object</param>
+        /// <param name="e">event data</param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
@@ -131,8 +131,8 @@ namespace ASEComponent
         /// <summary>
         /// This is the method for execute button where multiline program is executed.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Reference to the control object</param>
+        /// <param name="e">event data</param>
         private void buttonExecute_Click(object sender, EventArgs e)
         {
             hasDrawOrMoveValue = false;
@@ -194,7 +194,7 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to run the commands like if-condition, loop and repeat.
         /// </summary>
-        /// <param name="singleLineCommand"></param>
+        /// <param name="singleLineCommand">This parameter is used to create + and =</param>
 
         public void RunCommand(string singleLineCommand)
         {
@@ -355,7 +355,7 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to specify specific size for the shapes.
         /// </summary>
-        /// <param name="lineCommand"></param>
+        /// <param name="lineCommand">linecommand is for line of codes.</param>
         /// <returns></returns>
         private int GetSize(string lineCommand)
         {
@@ -386,7 +386,7 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to initialize and build shapes.
         /// </summary>
-        /// <param name="lineOfCommand"></param>
+        /// <param name="lineOfCommand">This parameter is initialize for shapes and variables.</param>
         private void sendDrawCommand(string lineOfCommand)
         {
             String[] shapes = { "circle", "rectangle", "triangle"};
@@ -519,6 +519,27 @@ namespace ASEComponent
                             loop = true;
                         }
                     }
+                    else if (cmd[1].ToLower().Equals("rbase"))
+                    {
+                        if (count == int.Parse(cmd[1]))
+                        {
+                            loop = true;
+                        }
+                    }
+                    else if (cmd[1].ToLower().Equals("adj"))
+                    {
+                        if (count == int.Parse(cmd[1]))
+                        {
+                            loop = true;
+                        }
+                    }
+                    else if (cmd[1].ToLower().Equals("hyp"))
+                    {
+                        if (count == int.Parse(cmd[1]))
+                        {
+                            loop = true;
+                        }
+                    }
                     int ifStartLine = (GetIfStartLineNumber());
                     int ifEndLine = (GetEndifEndLineNumber() - 1);
                     loopCount = ifEndLine;
@@ -540,7 +561,7 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to initilize loop.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>This returns line numbers</returns>
         private int GetEndifEndLineNumber()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -561,7 +582,7 @@ namespace ASEComponent
         /// <summary>
         /// This method is initiate if there is "if" command in the commandline.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>This returns line numbers.</returns>
         private int GetIfStartLineNumber()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -590,7 +611,7 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to initialize loop.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>This returns linenumber and 0 in exception.</returns>
         private int GetLoopEndLineNumber()
         {
             try
@@ -618,7 +639,7 @@ namespace ASEComponent
         /// <summary>
         /// Loops are started in this method.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>This returns line number.</returns>
         private int GetLoopStartLineNumber()
         {
             int commandline = MultilineProgramInput.Lines.Length;
@@ -653,8 +674,8 @@ namespace ASEComponent
         /// <summary>
         /// This is the method where user can type "run","clear" and "reset " command to execute, clear and reset commandline simulteneouly.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Reference to the control object</param>
+        /// <param name="e">event data</param>
         private void executeInput_TextChanged(object sender, EventArgs e)
         {
             if (executeInput.Text.ToLower().Trim() == "run")
@@ -892,8 +913,8 @@ namespace ASEComponent
         /// <summary>
         /// This method can draw the blue color rectangle shape.
         /// </summary>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        /// <param name="width">width of rectangle</param>
+        /// <param name="height">height of rectangle</param>
         private void DrawRectangle(int width, int height)
         {
             Pen myPen = new Pen(Color.Blue);
@@ -902,7 +923,7 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to draw circle using radius parameter.
         /// </summary>
-        /// <param name="radius"></param>
+        /// <param name="radius">radius of circle</param>
         private void DrawCircle(int radius)
         {
             Pen myPen = new Pen(Color.Green);
@@ -911,9 +932,9 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to draw Triangle.
         /// </summary>
-        /// <param name="rBase"></param>
-        /// <param name="adj"></param>
-        /// <param name="hyp"></param>
+        /// <param name="rBase">base ko triangle</param>
+        /// <param name="adj">adjective of triangle</param>
+        /// <param name="hyp">hypotenus of triangle</param>
         private void DrawTriangle(int rBase, int adj, int hyp)
         {
             Pen myPen = new Pen(Color.Red);
@@ -932,8 +953,8 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to move axis location from singleline program textbox.
         /// </summary>
-        /// <param name="toX"></param>
-        /// <param name="toY"></param>
+        /// <param name="toX">move to x axis</param>
+        /// <param name="toY">move to y axis</param>
         public void MoveTo(int toX, int toY)
         {
             x = toX;
@@ -945,8 +966,8 @@ namespace ASEComponent
         /// <summary>
         /// This method is used to draw the shapes in specific location.
         /// </summary>
-        /// <param name="toX"></param>
-        /// <param name="toY"></param>
+        /// <param name="toX">to x-axis</param>
+        /// <param name="toY">to y-axis</param>
         public void DrawTo(int toX, int toY)
         {
             x = toX;

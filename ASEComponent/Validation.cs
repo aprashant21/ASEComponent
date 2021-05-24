@@ -5,8 +5,14 @@ using System.Windows.Forms;
 
 namespace Paint
 {
+    /// <summary>
+    /// This class is used to validate user's input.
+    /// </summary>
     public class Validation
     { 
+        /// <summary>
+        /// Variable declared for the methods. 
+        /// </summary>
         private TextBox MultilineInputProgram;
         public Boolean isValidCommand = true;
         public Boolean isSomethingInvalid = false;
@@ -23,6 +29,10 @@ namespace Paint
         public Boolean hasEndif = false;
 
         public int loopLineNo = 0, endLoopLineNo = 0, ifLineNo = 0, endIfLineNo = 0;
+        /// <summary>
+        /// This method is used to validate the erorrs in the line.
+        /// </summary>
+        /// <param name="MultilineInputProgram">This is parameter of multiline text box.</param>
         public Validation(TextBox MultilineInputProgram)
         {
             this.MultilineInputProgram = MultilineInputProgram;
@@ -50,6 +60,9 @@ namespace Paint
                 isSomethingInvalid = true;
             }
         }
+        /// <summary>
+        /// This is the function to check validation of loop and if.
+        /// </summary>
         public void checkLoopAndIfValidation()
         {
             int numberOfLines = MultilineInputProgram.Lines.Length;
@@ -140,7 +153,10 @@ namespace Paint
                 }
             }
         }
-
+        /// <summary>
+        /// This function helps to validate lines of command.
+        /// </summary>
+        /// <param name="lineOfCommand"></param>
         public void checkLineValidation(string lineOfCommand)
         {
             String[] keyword = { "circle", "rectangle", "triangle", "drawto", "moveto", "repeat", "if", "endif", "loop", "endloop" };
@@ -496,7 +512,10 @@ namespace Paint
             }
 
         }
-        
+        /// <summary>
+        /// This is the function to check if variable is defined or not.
+        /// </summary>
+        /// <param name="variable"></param>
         public void checkIfVariableDefined(string variable)
         {
             Boolean isVaraibleFound = false;

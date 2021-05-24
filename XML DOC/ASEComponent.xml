@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ASEComponent</name>
+    </assembly>
+    <members>
+        <member name="T:ASEComponent.About">
+            <summary>
+            This is the about class where user can get the information about the product.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.About.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            This is the okay button to close this about window.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:ASEComponent.About.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.About.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ASEComponent.About.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ASEComponent.Circle">
+            <summary>
+            This is the circle class where circle method is created.
+            </summary>
+        </member>
+        <member name="F:ASEComponent.Circle.x">
+            <summary>
+            variables are declared.
+            </summary>
+        </member>
+        <member name="F:ASEComponent.Circle.y">
+            <summary>
+            variables are declared.
+            </summary>
+        </member>
+        <member name="F:ASEComponent.Circle.radius">
+            <summary>
+            variables are declared.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Circle.#ctor">
+            <summary>
+            This is base class of circle where value of radius = 0.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Circle.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This is the circle method where radius variable get value.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="radius"></param>
+        </member>
+        <member name="M:ASEComponent.Circle.Draw(System.Drawing.Graphics)">
+            <summary>
+            This is the Draw method where shape of circle is initialize.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:ASEComponent.Circle.draw(System.Drawing.Graphics)">
+            <summary>
+            This is the method to fill the circle by color.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:ASEComponent.Circle.set(System.Drawing.Color,System.Int32[])">
+            <summary>
+            This is the set method to set the value of x,y co-ordinate and radius.
+            </summary>
+            <param name="c"></param>
+            <param name="list"></param>
+        </member>
+        <member name="T:ASEComponent.CreateShapes">
+            <summary>
+            This is abstract class named createshapes.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.CreateShapes.getShape(System.String)">
+            <summary>
+            This is abstract method getshape which helps to get shapes like rectangle, circle and triangle.
+            </summary>
+            <param name="ShapeType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASEComponent.Form1">
+            <summary>
+            This is the main class where entire code are written.
+            </summary>
+        </member>
+        <member name="F:ASEComponent.Form1.g">
+            <summary>
+            This is the instance variables declared.
+            </summary>
+        </member>
+        <member name="F:ASEComponent.Form1.factory">
+            <summary>
+            calling shapesfactory class
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Form1.exitToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            This method is method to exit main window..
+            </summary>
+            <param name="sender">Reference to the control object</param>
+            <param name="e">event data</param>
+        </member>
+        <member name="M:ASEComponent.Form1.aboutToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            This method is method to open about window.
+            </summary>
+            <param name="sender">Reference to the control object</param>
+            <param name="e">event data</param>
+        </member>
+        <member name="M:ASEComponent.Form1.openToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            This method is method to browser text in the program textbox and load data.
+            </summary>
+            <param name="sender">Reference to the control object</param>
+            <param name="e">event data</param>
+        </member>
+        <member name="M:ASEComponent.Form1.saveToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            This method is method to save program in the specific location.
+            </summary>
+            <param name="sender">Reference to the control object</param>
+            <param name="e">event data</param>
+        </member>
+        <member name="M:ASEComponent.Form1.buttonExecute_Click(System.Object,System.EventArgs)">
+            <summary>
+            This is the method for execute button where multiline program is executed.
+            </summary>
+            <param name="sender">Reference to the control object</param>
+            <param name="e">event data</param>
+        </member>
+        <member name="M:ASEComponent.Form1.loadexecute">
+            <summary>
+            This is the method for loading moveto/drawto and loop count command.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Form1.RunCommand(System.String)">
+            <summary>
+            This is the method to run the commands like if-condition, loop and repeat.
+            </summary>
+            <param name="singleLineCommand">This parameter is used to create + and =</param>
+        </member>
+        <member name="M:ASEComponent.Form1.GetSize(System.String)">
+            <summary>
+            This is the method to specify specific size for the shapes.
+            </summary>
+            <param name="lineCommand">linecommand is for line of codes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ASEComponent.Form1.sendDrawCommand(System.String)">
+            <summary>
+            This is the method to initialize and build shapes.
+            </summary>
+            <param name="lineOfCommand">This parameter is initialize for shapes and variables.</param>
+        </member>
+        <member name="M:ASEComponent.Form1.GetEndifEndLineNumber">
+            <summary>
+            This is the method to initilize loop.
+            </summary>
+            <returns>This returns line numbers</returns>
+        </member>
+        <member name="M:ASEComponent.Form1.GetIfStartLineNumber">
+            <summary>
+            This method is initiate if there is "if" command in the commandline.
+            </summary>
+            <returns>This returns line numbers.</returns>
+        </member>
+        <member name="M:ASEComponent.Form1.GetLoopEndLineNumber">
+            <summary>
+            This is the method to initialize loop.
+            </summary>
+            <returns>This returns linenumber and 0 in exception.</returns>
+        </member>
+        <member name="M:ASEComponent.Form1.GetLoopStartLineNumber">
+            <summary>
+            Loops are started in this method.
+            </summary>
+            <returns>This returns line number.</returns>
+        </member>
+        <member name="F:ASEComponent.Form1.size1">
+            <summary>
+            This is the variable which is used in "X-AXIS" group.
+            </summary>
+        </member>
+        <member name="F:ASEComponent.Form1.size2">
+            <summary>
+            This is the variable which is used in "X-AXIS" group.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Form1.executeInput_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            This is the method where user can type "run","clear" and "reset " command to execute, clear and reset commandline simulteneouly.
+            </summary>
+            <param name="sender">Reference to the control object</param>
+            <param name="e">event data</param>
+        </member>
+        <member name="M:ASEComponent.Form1.DrawRectangle(System.Int32,System.Int32)">
+            <summary>
+            This method can draw the blue color rectangle shape.
+            </summary>
+            <param name="width">width of rectangle</param>
+            <param name="height">height of rectangle</param>
+        </member>
+        <member name="M:ASEComponent.Form1.DrawCircle(System.Int32)">
+            <summary>
+            This is the method to draw circle using radius parameter.
+            </summary>
+            <param name="radius">radius of circle</param>
+        </member>
+        <member name="M:ASEComponent.Form1.DrawTriangle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This is the method to draw Triangle.
+            </summary>
+            <param name="rBase">base ko triangle</param>
+            <param name="adj">adjective of triangle</param>
+            <param name="hyp">hypotenus of triangle</param>
+        </member>
+        <member name="M:ASEComponent.Form1.MoveTo(System.Int32,System.Int32)">
+            <summary>
+            This is the method to move axis location from singleline program textbox.
+            </summary>
+            <param name="toX">move to x axis</param>
+            <param name="toY">move to y axis</param>
+        </member>
+        <member name="M:ASEComponent.Form1.DrawTo(System.Int32,System.Int32)">
+            <summary>
+            This method is used to draw the shapes in specific location.
+            </summary>
+            <param name="toX">to x-axis</param>
+            <param name="toY">to y-axis</param>
+        </member>
+        <member name="M:ASEComponent.Form1.ShapeOutput_MouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            This is the mouse click event method in which if user click on the output panel then he/she can see the actual axis in the label of the group box.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:ASEComponent.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ASEComponent.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ASEComponent.IShapes">
+            <summary>
+            This is interface which is used by different shapes.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.IShapes.set(System.Drawing.Color,System.Int32[])">
+            <summary>
+            This is set method to set color and parameter lists.
+            </summary>
+            <param name="c"></param>
+            <param name="list"></param>
+        </member>
+        <member name="M:ASEComponent.IShapes.draw(System.Drawing.Graphics)">
+            <summary>
+            This is the draw method to set the graphics.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:ASEComponent.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:ASEComponent.Rectangle">
+            <summary>
+            This is the Rectangle class where 'Draw' and 'draw' and , Rectangle methods are created.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Rectangle.#ctor">
+            <summary>
+            base method of rectangle.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Rectangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This is the method to get the method using this comamnd.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:ASEComponent.Rectangle.Draw(System.Drawing.Graphics)">
+            <summary>
+            This is the method to shape of circle.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:ASEComponent.Rectangle.draw(System.Drawing.Graphics)">
+            <summary>
+            This is the method to fill the circle by blue color.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ASEComponent.Rectangle.set(System.Drawing.Color,System.Int32[])" -->
+        <member name="T:ASEComponent.ShapesFactory">
+            <summary>
+            This is class that define factory design pattern.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.ShapesFactory.getShape(System.String)">
+            <summary>
+            This public override Ishapes method helps to override the getshape method.
+            </summary>
+            <param name="ShapeType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ASEComponent.Triangle">
+            <summary>
+            This is the Triangle class where 'Draw' and 'draw' and , Triangle methods are created.
+            </summary>
+        </member>
+        <member name="M:ASEComponent.Triangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            To get triangle width, height and x and y co-ordinate.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:ASEComponent.Triangle.Draw(System.Drawing.Graphics)">
+            <summary>
+            Draw method to draw the shape of the triangle.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:ASEComponent.Triangle.draw(System.Drawing.Graphics)">
+            <summary>
+            draw method is method to fill the triangle by color.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:ASEComponent.Triangle.set(System.Drawing.Color,System.Int32[])">
+            <summary>
+            Set method is for set the values for the x,y co-ordinate and width and height of the triangle.
+            </summary>
+            <param name="c"></param>
+            <param name="list"></param>
+        </member>
+        <member name="T:ASEComponent.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ASEComponent.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ASEComponent.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ASEComponent.Properties.Resources.triangle">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Paint.Validation">
+            <summary>
+            This class is used to validate user's input.
+            </summary>
+        </member>
+        <member name="F:Paint.Validation.MultilineInputProgram">
+            <summary>
+            Variable declared for the methods. 
+            </summary>
+        </member>
+        <member name="M:Paint.Validation.#ctor(System.Windows.Forms.TextBox)">
+            <summary>
+            This method is used to validate the erorrs in the line.
+            </summary>
+            <param name="MultilineInputProgram">This is parameter of multiline text box.</param>
+        </member>
+        <member name="M:Paint.Validation.checkLoopAndIfValidation">
+            <summary>
+            This is the function to check validation of loop and if.
+            </summary>
+        </member>
+        <member name="M:Paint.Validation.checkLineValidation(System.String)">
+            <summary>
+            This function helps to validate lines of command.
+            </summary>
+            <param name="lineOfCommand"></param>
+        </member>
+        <member name="M:Paint.Validation.checkIfVariableDefined(System.String)">
+            <summary>
+            This is the function to check if variable is defined or not.
+            </summary>
+            <param name="variable"></param>
+        </member>
+    </members>
+</doc>
