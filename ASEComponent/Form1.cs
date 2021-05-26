@@ -37,6 +37,7 @@ namespace ASEComponent
         int mouseX, mouseY = 0;
         public int dSize = 0;
         public int count = 0;
+        Color c;
 
         int loopCount = 0;
         Boolean hasDrawOrMoveValue = false;
@@ -808,6 +809,27 @@ namespace ASEComponent
                             Triangle r = new Triangle();
                             r.set(Color.AliceBlue, x, y, width, height);
                             r.draw(g);
+                        }
+                    }
+                    else if (cmd[0].Equals("pen") == true)
+                    {
+
+                        
+                        if (cmd[1] == "red")//if red then color changes to red
+                        {
+                            c = Color.Red;
+                        }
+                        else if (cmd[1] == "blue")//if blue then color changes to blue
+                        {
+                            c = Color.Blue;
+                        }
+                        else if (cmd[1] == "yellow")//if yellow then color changes to yellow
+                        {
+                            c = Color.Yellow;
+                        }
+                        else
+                        {
+                            c = Color.AliceBlue;//default color
                         }
                     }
                     else if (cmd[0].Equals("fillrectangle") == true)
