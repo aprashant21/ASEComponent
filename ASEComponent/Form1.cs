@@ -236,13 +236,16 @@ namespace ASEComponent
                         }
 
                     }
+                  
+                    
                     else if (cmd[1].ToLower().Equals("count"))
                     {
-                        if (count == int.Parse(cmd[3]))
+                        if(count == int.Parse(cmd[3]))
                         {
                             loop = true;
                         }
                     }
+
                     int ifStartLine = (GetIfStartLineNumber());
                     int ifEndLine = (GetEndifEndLineNumber() - 1);
                     loopCount = ifEndLine;
@@ -286,6 +289,7 @@ namespace ASEComponent
                     {
                         count = int.Parse(cmd2[1]);
                     }
+                  
                 }
             }
             else if (hasPlus)
@@ -322,7 +326,7 @@ namespace ASEComponent
                         dSize = increaseValue;
                         for (int j = 0; j < count; j++)
                         {
-                            DrawTriangle(dSize, dSize, dSize);
+                            DrawTriangle(dSize, dSize);
                             dSize += increaseValue;
                         }
                     }
@@ -346,6 +350,7 @@ namespace ASEComponent
                     {
                         height += int.Parse(cmd2[1]);
                     }
+                  
                 }
             }
             else
@@ -390,8 +395,8 @@ namespace ASEComponent
         /// <param name="lineOfCommand">This parameter is initialize for shapes and variables.</param>
         private void sendDrawCommand(string lineOfCommand)
         {
-            String[] shapes = { "circle", "rectangle", "triangle"};
-            String[] variable = { "radius", "width", "height", "count", "size" };
+            String[] shapes = { "circle", "rectangle", "triangle" };
+            String[] variable = { "radius", "width", "height", "count", "size"};
 
             lineOfCommand = System.Text.RegularExpressions.Regex.Replace(lineOfCommand, @"\s+", " ");
             string[] cmd = lineOfCommand.Split(' ');
@@ -463,9 +468,36 @@ namespace ASEComponent
                     {
                         parms[i] = parms[i].Trim();
                     }
-                    DrawTriangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]));
+                    Boolean secondWordIsVariable = variable.Contains(parms[0].ToLower());
+                    Boolean thirdWordIsVariable = variable.Contains(parms[1].ToLower());
+                    if (secondWordIsVariable)
+                    {
+                        if (thirdWordIsVariable)
+                        {
+                            DrawTriangle(width, height);
+                        }
+                        else
+                        {
+                            DrawTriangle(width, Int32.Parse(parms[1]));
+                        }
+
+                    }
+                    else
+                    {
+                        if (thirdWordIsVariable)
+                        {
+                            DrawTriangle(Int32.Parse(parms[0]), height);
+                        }
+                        else
+                        {
+                            DrawTriangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]));
+                        }
+                    }
                 }
+
             }
+        
+            
             else
             {
                 if (firstWord.Equals("loop"))
@@ -954,10 +986,9 @@ namespace ASEComponent
         /// <summary>
         /// This is the method to draw Triangle.
         /// </summary>
-        /// <param name="rBase">base ko triangle</param>
-        /// <param name="adj">adjective of triangle</param>
-        /// <param name="hyp">hypotenus of triangle</param>
-        private void DrawTriangle(int rBase, int adj, int hyp)
+        /// <param name="width">base ko triangle</param>
+        /// <param name="height">adjective of triangle</param>
+        private void DrawTriangle(int width, int height)
         {
             Pen myPen = new Pen(Color.Red);
             Point[] p = new Point[3];
@@ -965,11 +996,11 @@ namespace ASEComponent
             p[0].X = mouseX;
             p[0].Y = mouseY;
 
-            p[1].X = mouseX - rBase;
+            p[1].X = mouseX - width;
             p[1].Y = mouseY;
 
             p[2].X = mouseX;
-            p[2].Y = mouseY - adj;
+            p[2].Y = mouseY - height;
             g.DrawPolygon(myPen, p);
         }
         /// <summary>

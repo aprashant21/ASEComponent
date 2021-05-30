@@ -225,13 +225,12 @@
             </summary>
             <param name="radius">radius of circle</param>
         </member>
-        <member name="M:ASEComponent.Form1.DrawTriangle(System.Int32,System.Int32,System.Int32)">
+        <member name="M:ASEComponent.Form1.DrawTriangle(System.Int32,System.Int32)">
             <summary>
             This is the method to draw Triangle.
             </summary>
-            <param name="rBase">base ko triangle</param>
-            <param name="adj">adjective of triangle</param>
-            <param name="hyp">hypotenus of triangle</param>
+            <param name="width">base ko triangle</param>
+            <param name="height">adjective of triangle</param>
         </member>
         <member name="M:ASEComponent.Form1.MoveTo(System.Int32,System.Int32)">
             <summary>
